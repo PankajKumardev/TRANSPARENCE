@@ -89,7 +89,7 @@ export default function App() {
         scrollTrigger: {
           trigger: '.section-4',
           start: 'top top',
-          end: '+=80%',
+          end: '+=60%',
           scrub: true,
           pin: true,
         },
@@ -124,6 +124,65 @@ export default function App() {
           },
         );
       });
+
+      // Section Horizon — glass bar sweeps top to bottom
+      gsap.fromTo(
+        '.s-hor-bar',
+        { y: '-45vh' },
+        {
+          y: '45vh',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.section-horizon',
+            start: 'top top',
+            end: '+=100%',
+            scrub: true,
+            pin: true,
+          },
+        },
+      );
+
+      // Section Convergence — 4 shards converge to center
+      const convTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-convergence',
+          start: 'top top',
+          end: '+=100%',
+          scrub: true,
+          pin: true,
+        },
+      });
+
+      convTl.fromTo(
+        '.s-conv-shard-tl',
+        { x: '-60vw', y: '-60vh', rotation: -45 },
+        { x: '0vw', y: '0vh', rotation: 0, ease: 'none' },
+        0,
+      );
+      convTl.fromTo(
+        '.s-conv-shard-tr',
+        { x: '60vw', y: '-60vh', rotation: 45 },
+        { x: '0vw', y: '0vh', rotation: 0, ease: 'none' },
+        0,
+      );
+      convTl.fromTo(
+        '.s-conv-shard-bl',
+        { x: '-60vw', y: '60vh', rotation: 45 },
+        { x: '0vw', y: '0vh', rotation: 0, ease: 'none' },
+        0,
+      );
+      convTl.fromTo(
+        '.s-conv-shard-br',
+        { x: '60vw', y: '60vh', rotation: -45 },
+        { x: '0vw', y: '0vh', rotation: 0, ease: 'none' },
+        0,
+      );
+      convTl.fromTo(
+        '.s-conv-text',
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, ease: 'power2.out' },
+        0.3,
+      );
 
       // Section Mosaic
       gsap.utils.toArray('.s-mos-tile').forEach((tile: any, i) => {
@@ -284,11 +343,41 @@ export default function App() {
         </div>
       </section>
 
+      {/* Section: The Horizon */}
+      <section className="section-horizon relative h-screen w-full flex items-center justify-center bg-silica overflow-hidden">
+        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center">
+          <h2 className="font-serif text-7xl md:text-9xl tracking-tighter leading-none text-center">
+            WHAT IS SEEN
+          </h2>
+          <div className="h-[10vh]"></div>
+          <h2 className="font-serif text-7xl md:text-9xl tracking-tighter leading-none text-center scale-y-[-1] opacity-30">
+            WHAT IS HIDDEN
+          </h2>
+        </div>
+        <div className="s-hor-bar glass-frosted absolute left-0 w-full h-[8vh] z-10 shadow-[0_0_40px_rgba(0,0,0,0.08)]"></div>
+      </section>
+
       {/* Section 5: The Void */}
       <section className="section-5 relative h-screen w-full flex items-center justify-center bg-silica">
         <p className="font-sans text-[12px] tracking-[0.2em] uppercase text-obsidian/60">
           The absence of distortion is the ultimate luxury.
         </p>
+      </section>
+
+      {/* Section: The Convergence */}
+      <section className="section-convergence relative h-screen w-full flex items-center justify-center bg-ivory overflow-hidden">
+        <div className="s-conv-text absolute z-0 flex flex-col items-center text-center">
+          <h2 className="font-serif text-7xl md:text-[8vw] tracking-tighter leading-none">
+            ALL LIGHT
+          </h2>
+          <h2 className="font-serif text-7xl md:text-[8vw] tracking-tighter leading-none">
+            CONVERGES
+          </h2>
+        </div>
+        <div className="s-conv-shard-tl glass-fluted absolute top-[10%] left-[5%] w-[40vw] h-[35vh] z-10"></div>
+        <div className="s-conv-shard-tr glass-fluted absolute top-[10%] right-[5%] w-[40vw] h-[35vh] z-10"></div>
+        <div className="s-conv-shard-bl glass-fluted absolute bottom-[10%] left-[5%] w-[40vw] h-[35vh] z-10"></div>
+        <div className="s-conv-shard-br glass-fluted absolute bottom-[10%] right-[5%] w-[40vw] h-[35vh] z-10"></div>
       </section>
 
       {/* Section Mosaic */}
