@@ -141,18 +141,19 @@ export default function App() {
         );
       });
 
-      // Section 6: Dispersion
+      // Section 6: Dispersion — pinned, PRISM glass slides up to cover ABERRATION
       gsap.fromTo(
         '.s6-glass',
-        { y: '15vh' },
+        { y: '80vh' },
         {
-          y: '-15vh',
+          y: '-10vh',
           ease: 'none',
           scrollTrigger: {
             trigger: '.section-6',
-            start: 'top bottom',
-            end: 'bottom top',
+            start: 'top top',
+            end: '+=100%',
             scrub: true,
+            pin: true,
           },
         },
       );
@@ -315,9 +316,9 @@ export default function App() {
             point.
           </p>
         </div>
-        <div className="s6-glass absolute bottom-[15%] z-10 w-[80vw] md:w-[60vw] h-[35vh] glass-frosted glass-hover-effect flex items-center justify-center shadow-[inset_1px_0_0_rgba(255,0,0,0.2),inset_-1px_0_0_rgba(0,0,255,0.2)]">
+        <div className="s6-glass absolute left-0 z-10 w-full h-full glass-frosted flex items-center justify-center shadow-[inset_1px_0_0_rgba(255,0,0,0.2),inset_-1px_0_0_rgba(0,0,255,0.2)]">
           <h3
-            className="chromatic-text font-serif text-6xl md:text-8xl mix-blend-overlay opacity-80 z-20"
+            className="chromatic-text font-serif text-6xl md:text-8xl text-obsidian/70 z-20"
             data-text="PRISM"
           >
             PRISM

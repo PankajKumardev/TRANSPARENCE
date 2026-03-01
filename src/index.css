@@ -12,37 +12,44 @@
   --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
-@layer utilities {
-  .glass-fluted {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.28) 0%,
-      rgba(255, 255, 255, 0.12) 100%
-    );
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    mask-image: repeating-linear-gradient(
-      to right,
-      black 0px,
-      black 4px,
-      transparent 4px,
-      transparent 5px
-    );
-  }
+.glass-fluted {
+  --_glass-blur: blur(12px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  -webkit-backdrop-filter: var(--_glass-blur);
+  backdrop-filter: var(--_glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  -webkit-mask-image: repeating-linear-gradient(
+    to right,
+    black 0px,
+    black 4px,
+    transparent 4px,
+    transparent 5px
+  );
+  mask-image: repeating-linear-gradient(
+    to right,
+    black 0px,
+    black 4px,
+    transparent 4px,
+    transparent 5px
+  );
+}
 
-  .glass-frosted {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.1) 100%
-    );
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-  }
+.glass-frosted {
+  --_glass-blur: blur(16px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  -webkit-backdrop-filter: var(--_glass-blur);
+  backdrop-filter: var(--_glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 @supports not (
@@ -108,14 +115,12 @@ body {
 }
 .chromatic-text::before {
   color: rgba(255, 0, 0, 0.7);
-  transform: translateX(-3px);
-  z-index: -1;
+  transform: translateX(-4px);
   mix-blend-mode: multiply;
 }
 .chromatic-text::after {
   color: rgba(0, 0, 255, 0.7);
-  transform: translateX(3px);
-  z-index: -1;
+  transform: translateX(4px);
   mix-blend-mode: multiply;
 }
 
