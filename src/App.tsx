@@ -84,21 +84,26 @@ export default function App() {
         },
       );
 
-      // Section 4: The Fluting
+      // Section 4: The Fluting — pinned, pillars slide through
+      const s4Tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-4',
+          start: 'top top',
+          end: '+=80%',
+          scrub: true,
+          pin: true,
+        },
+      });
+
       gsap.utils.toArray('.s4-pillar').forEach((pillar: any, i) => {
-        gsap.fromTo(
+        s4Tl.fromTo(
           pillar,
-          { y: i % 2 === 0 ? '15vh' : '-15vh' },
+          { y: i % 2 === 0 ? '80vh' : '-80vh' },
           {
-            y: i % 2 === 0 ? '-15vh' : '15vh',
+            y: i % 2 === 0 ? '-80vh' : '80vh',
             ease: 'none',
-            scrollTrigger: {
-              trigger: '.section-4',
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true,
-            },
           },
+          0,
         );
       });
 
