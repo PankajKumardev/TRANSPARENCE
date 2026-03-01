@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-silica: #fdfcfb;
+  --color-ivory: #f4f3f0;
+  --color-obsidian: #0f0f0f;
+  --color-frost: rgba(255, 255, 255, 0.4);
+  --color-chromatic: rgba(200, 210, 255, 0.1);
+
+  --font-serif: 'Playfair Display', 'Times New Roman', serif;
+  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer utilities {
+  .glass-fluted {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    mask-image: repeating-linear-gradient(
+      to right,
+      black 0px,
+      black 4px,
+      transparent 4px,
+      transparent 5px
+    );
+  }
+
+  .glass-frosted {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+body {
+  background-color: var(--color-silica);
+  color: var(--color-obsidian);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--color-obsidian);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.2s,
+    height 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hovering-glass {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Chromatic Aberration */
+.chromatic-text {
+  position: relative;
+  display: inline-block;
+}
+.chromatic-text::before,
+.chromatic-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.chromatic-text::before {
+  color: rgba(255, 0, 0, 0.7);
+  transform: translateX(-3px);
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+.chromatic-text::after {
+  color: rgba(0, 0, 255, 0.7);
+  transform: translateX(3px);
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+
+/* Refraction Hover */
+.glass-hover-effect {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+.glass-hover-effect:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}
