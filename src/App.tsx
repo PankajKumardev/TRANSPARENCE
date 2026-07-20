@@ -393,7 +393,7 @@ export default function App() {
           <p className="s1-caption caption-chip eyebrow relative z-[1] mb-8">
             A study in light and glass
           </p>
-          <div className="relative z-[1] rounded-sm bg-cloud/90 px-4 py-3 shadow-[0_16px_50px_rgba(13,21,36,0.08)] md:px-8 md:py-5">
+          <div className="relative z-[1] rounded-sm bg-cloud px-4 py-3 shadow-[0_16px_50px_rgba(13,21,36,0.1)] md:px-8 md:py-5">
             <h1 className="s1-brand brand-mark text-[14vw] md:text-[10vw]">
               TRANSPARENCE
             </h1>
