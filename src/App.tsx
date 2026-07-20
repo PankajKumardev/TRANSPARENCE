@@ -387,7 +387,8 @@ export default function App() {
           <div className="absolute inset-0 image-scrim" />
           <div className="light-beam" />
         </div>
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <div className="s1-glass glass-fluted glass-hover-effect absolute top-0 left-[42%] z-10 h-full w-[18vw] min-w-[120px] max-w-[220px]" />
+        <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
           <div className="brand-halo" aria-hidden="true" />
           <p className="s1-caption caption-chip eyebrow relative z-[1] mb-8">
             A study in light and glass
@@ -400,7 +401,6 @@ export default function App() {
             cannot.
           </p>
         </div>
-        <div className="s1-glass glass-fluted glass-hover-effect absolute top-0 left-[42%] z-20 h-full w-[18vw] min-w-[120px] max-w-[220px]" />
       </section>
 
       {/* 02 — Depth */}
