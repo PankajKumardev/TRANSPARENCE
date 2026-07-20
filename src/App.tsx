@@ -381,10 +381,10 @@ export default function App() {
           <img
             src="https://picsum.photos/seed/daylightglass/1920/1280"
             alt=""
-            className="scene-image opacity-90"
+            className="scene-image opacity-80"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 image-scrim" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cloud/35 via-cloud/20 to-paper/55" />
           <div className="light-beam" />
         </div>
         <div className="s1-glass glass-fluted glass-hover-effect absolute top-0 left-[42%] z-10 h-full w-[18vw] min-w-[120px] max-w-[220px]" />

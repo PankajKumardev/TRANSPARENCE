@@ -92,14 +92,15 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(92vw, 1100px);
-  height: min(42vh, 360px);
+  width: min(96vw, 1200px);
+  height: min(52vh, 420px);
   transform: translate(-50%, -52%);
   background: radial-gradient(
     ellipse at center,
-    rgba(247, 249, 252, 0.82) 0%,
-    rgba(247, 249, 252, 0.35) 48%,
-    transparent 72%
+    rgba(247, 249, 252, 0.92) 0%,
+    rgba(247, 249, 252, 0.62) 42%,
+    rgba(247, 249, 252, 0.18) 68%,
+    transparent 78%
   );
   pointer-events: none;
   z-index: 0;
